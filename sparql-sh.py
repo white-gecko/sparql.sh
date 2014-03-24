@@ -54,7 +54,12 @@ class MyDialect(csv.Dialect):
 def readResult(response):
     responseHeader = response.info()
     # TODO check the content type to switch between parsers
+    mimeType = responseHeader['Content-Type'].split(';')[0]
     encoding = responseHeader['Content-Type'].split(';')[1].split('=')[1]
+
+    if (mimeType != 'text/csv' and mimeType != 'text/tab-separated-values' and mimeType != 'text/plain'):
+        print('Sorry, mime/type of answer it currently unsupported:', mimeType)
+        return
     responseString = response.read().decode(encoding)
     #print(responseString)
     resultSet = csv.reader(io.StringIO(responseString))
