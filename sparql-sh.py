@@ -61,7 +61,6 @@ def readResult(response):
         print('Sorry, mime/type of answer it currently unsupported:', mimeType)
         return
     responseString = response.read().decode(encoding)
-    #print(responseString)
     resultSet = csv.reader(io.StringIO(responseString))
     return resultSet
 
