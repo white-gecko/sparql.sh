@@ -12,3 +12,4 @@ Requirements
 
     * python >=3
     * python3-prettytable
+    * [python3-librdf](http://librdf.org/docs/python.html) (redland librdf bindings for python 3) https://github.com/dajobe/redland-bindings
